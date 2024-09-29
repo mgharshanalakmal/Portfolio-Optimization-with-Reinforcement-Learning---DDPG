@@ -43,9 +43,7 @@ class PortfolioEnv(py_environment.PyEnvironment):
         self.index = 0
 
         self.max_index = self.df.shape[0]
-        start_point = np.random.choice(
-            np.arange(3, self.max_index - (config.EPISODE_LENGTH + 2))
-        )
+        start_point = np.random.choice(np.arange(3, self.max_index - (config.EPISODE_LENGTH + 2)))
         end_point = start_point + config.EPISODE_LENGTH
         self.df = self.df.loc[start_point : end_point + 2]
         self.step_reward = 0
